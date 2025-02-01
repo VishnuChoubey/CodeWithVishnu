@@ -1,35 +1,10 @@
-// public class datastructure{
-//     public static void main(String args[]){
-//         System.out.println("Hello world");
-//         System.out.println("hi");
-//     }
-// }
+import java.util.Scanner;
 
-// import java.util.*;
-// public class datastructure{
-   
-//     class AgeComparator implements Comparator<List<Integer>> {
-//         @Override
-//         public int compare(List<Integer> s1, List<Integer> s2) {
-//             return Integer.compare(s1.get(0), s2.get(0)); // Ascending by age
-//         }
-//     }
-    
-    
-//     public static void main(String args[]){
-//         String str=""+5;
-//         System.out.println(str);
-      
-       
-//     }
-// }
-
-import java.util.*;
-public class datastructure{
-    static char[][] matrix={{' ',' ',' '},
+public class tictactoe {
+     static char[][] matrix={{' ',' ',' '},
     {' ',' ',' '},
     {' ',' ',' '}};
-    static char currplayer='x';
+    static char currplayer='X';
     public static void main(String args[]){
       Scanner sc=new Scanner(System.in);
       while(true){
@@ -49,7 +24,7 @@ public class datastructure{
             break;
         }
         else{
-            currplayer=(currplayer=='x')?'o':'x';
+            currplayer=(currplayer=='X')?'O':'X';
         }
       }
       else{
@@ -81,4 +56,5 @@ public class datastructure{
         }
         return false;
     }
+    
 }
