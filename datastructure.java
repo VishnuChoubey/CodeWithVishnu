@@ -27,13 +27,14 @@
 import java.util.*;
 public class datastructure{
     public static void main(String args[]){
-        String str="vishnu";
-        String vis="satyam";
+      
         // System.out.println(str.equals(vis));
         // System.out.println(str==vis);
-        StringBuilder s1=new StringBuilder("vishnu");
-        StringBuilder s2=new StringBuilder("vishnu");
-        System.out.println(s1.equals(s2));
-        System.out.println(s1==s2);
+        //StringBuilder s1=new StringBuilder("vishnu");
+        // System.out.println('3'-'2');
+
+        String vis="vi%#sh()n!u";
+        System.out.println(vis.replaceAll("[a-z0-9A-Z]",""));
+        
     }
 }
