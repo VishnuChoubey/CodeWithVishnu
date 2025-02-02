@@ -12,6 +12,11 @@ public class Map {
         List<String> list=new ArrayList<>();
         list.addAll(col);
         System.out.println(list);
+        Iterator itr=col.iterator();
+        while(itr.hasNext()){
+            System.out.println(itr.next());
+        }
+
         
     }
 }
