@@ -19,11 +19,17 @@ public class linkedlist {
         public static Node func(Node head) {
             Node dummy = new Node('*');
             dummy.next = head;
-            Node tail = head.next;
-            Node prev = head;
+            Node tail = head;
+            Node prev = dummy;
             Node temp1 = dummy;
             String str = "aeiou";
-    
+            while(str.indexOf(tail.val) != -1&&tail!=null){
+                    prev=tail;
+                     temp1=prev;
+                    tail=tail.next;
+            }
+           
+           
             while (tail != null) {
                 if (str.indexOf(tail.val) != -1) { // More efficient vowel check
                     prev.next = tail.next; // Remove from current position
@@ -54,9 +60,9 @@ public class linkedlist {
     }
     public static void main(String args[]){
     Scanner sc=new Scanner(System.in);
-    Node head=new Node('i');
+    Node head=new Node('s');
     head.next=new Node('a');
-    head.next.next=new Node('b');
+    head.next.next=new Node('u');
     head.next.next.next=new Node('k');
     head.next.next.next.next=new Node('c');
     head.next.next.next.next.next=new Node('i');
