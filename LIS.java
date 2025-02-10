@@ -66,43 +66,65 @@ import java.util.*;
       
   //   }}
   
-  import java.util.*;
+//   import java.util.*;
 
-public class LIS {
-    public static void findLIS(int[] arr) {
-        int n = arr.length;
-        int[] dp = new int[n]; 
-        int[] prev = new int[n]; 
-        Arrays.fill(dp, 1);
-        Arrays.fill(prev, -1);
+// public class LIS {
+//     public static void findLIS(int[] arr) {
+//         int n = arr.length;
+//         int[] dp = new int[n]; 
+//         int[] prev = new int[n]; 
+//         Arrays.fill(dp, 1);
+//         Arrays.fill(prev, -1);
 
-        int maxLength = 1, lastIndex = 0;
+//         int maxLength = 1, lastIndex = 0;
         
-        for (int i = 1; i < n; i++) {
-            for (int j = 0; j < i; j++) {
-                if (arr[i] > arr[j] && dp[i] < dp[j] + 1) {
-                    dp[i] = dp[j] + 1;
-                    prev[i] = j;
-                }
-            }
-            if (dp[i] > maxLength) {
-                maxLength = dp[i];
-                lastIndex = i;
-            }
-        }
+//         for (int i = 1; i < n; i++) {
+//             for (int j = 0; j < i; j++) {
+//                 if (arr[i] > arr[j] && dp[i] < dp[j] + 1) {
+//                     dp[i] = dp[j] + 1;
+//                     prev[i] = j;
+//                 }
+//             }
+//             if (dp[i] > maxLength) {
+//                 maxLength = dp[i];
+//                 lastIndex = i;
+//             }
+//         }
 
-        List<Integer> lis = new ArrayList<>();
-        while (lastIndex != -1) {
-            lis.add(arr[lastIndex]);
-            lastIndex = prev[lastIndex];
-        }
-        Collections.reverse(lis);
+//         List<Integer> lis = new ArrayList<>();
+//         while (lastIndex != -1) {
+//             lis.add(arr[lastIndex]);
+//             lastIndex = prev[lastIndex];
+//         }
+//         Collections.reverse(lis);
 
-        System.out.println("Longest Increasing Subsequence: " + lis);
+//         System.out.println("Longest Increasing Subsequence: " + lis);
+//     }
+
+//     public static void main(String[] args) {
+//         int[] arr = {10, 22, 9, 33, 21, 50, 41, 60, 80};
+//         findLIS(arr);
+//     }
+// }
+
+
+import java.util.*;
+public class LIS{
+public static int grid(int i,int[] array){
+    if(i==0)return array[0];
+    if(i<0)return 10000;
+    int l=array[i]+grid(i-1,array);
+    int r=array[i]+grid(i-2,array);
+    return Math.min(l,r);
+}
+public static void main(String args[]){
+    int n=4;
+    int[] dp=new int[n+1];
+    dp[0]=1;
+    dp[1]=1;
+    for(int i=2;i<=n;i++){
+      dp[i]=dp[i-1]+dp[i-2];
     }
-
-    public static void main(String[] args) {
-        int[] arr = {10, 22, 9, 33, 21, 50, 41, 60, 80};
-        findLIS(arr);
-    }
+    System.out.println(dp[n]);
+}
 }
