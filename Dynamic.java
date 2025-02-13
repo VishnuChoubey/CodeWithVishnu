@@ -44,23 +44,94 @@
 //     }
 // }
 
+// public class Dynamic{
+//     public static void main(String args[]){
+//         int array[]={2,4,6,8,12};
+//         int first=0;
+//         int key=3;
+//         int last=array.length-1;
+//         int ans=array.length;
+//         while(first<=last){
+//            int mid=(first+last)/2;
+//            if(array[mid]>key){
+//              last=mid-1;
+//              ans=mid;
+//            }
+//            else{
+//             first=mid+1;
+//            }
+//         }
+//         System.out.println(ans);
+//     }
+// }
+
+// import java.util.*;
+// public class Dynamic{
+//     static class TreeNode{
+//         int val;
+//         TreeNode left,right;
+//         public TreeNode(int val){
+//             this.val=val;
+//             this.right=this.left=null;
+//         }
+//         public TreeNode(int val,TreeNode left,TreeNode right){
+//             this.val=val;
+//             this.left=left;
+//             this.right=right;
+//         }
+//     }
+//     public static void print(TreeNode root){
+//         if(root==null)return;
+//         System.out.print(root.val+" ");
+//         print(root.left);
+//         print(root.right);
+//     }
+//     public static void main(String args[]){
+//         Queue<TreeNode> q=new LinkedList<>();
+//         int array[]={1,2,3,4,5,6,7};
+//         TreeNode root=new TreeNode(array[0]);
+//          q.offer(root);
+//          int i=1;
+//         while(!q.isEmpty()){
+//             TreeNode temp=q.poll();
+//             if(i<array.length){
+//               temp.left=new TreeNode(array[i]);
+//               q.offer(temp.left);
+//             }
+//             i++;
+//             if(i<array.length){
+//                 temp.right=new TreeNode(array[i]);
+//                 q.offer(temp.right);
+//             }
+//             i++;
+//         }
+//         print(root);
+//     }
+// }
+
+import java.util.*;
 public class Dynamic{
     public static void main(String args[]){
-        int array[]={2,4,6,8,12};
-        int first=0;
-        int key=3;
-        int last=array.length-1;
-        int ans=array.length;
-        while(first<=last){
-           int mid=(first+last)/2;
-           if(array[mid]>key){
-             last=mid-1;
-             ans=mid;
-           }
-           else{
-            first=mid+1;
-           }
+        int array[]={7,8,9,1,2,3,4};
+        int low=0;
+        int high=array.length-1;
+        int ans=-1;
+        int max=Integer.MAX_VALUE;
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(array[low]<=array[high]){
+                max=Math.min(max,array[low]);
+            }
+            if(array[low]<=array[mid]){
+                max=Math.min(max,array[low]);
+                low=mid+1;
+            }
+            else if(array[mid]<=array[high]){
+                max=Math.min(max,array[mid]);
+                high=mid-1;
+            }
+           
         }
-        System.out.println(ans);
+        System.out.println(max);
     }
 }
