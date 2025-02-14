@@ -109,29 +109,38 @@
 //     }
 // }
 
+// import java.util.*;
+// public class Dynamic{
+//     public static void main(String args[]){
+//         int array[]={7,8,9,1,2,3,4};
+//         int low=0;
+//         int high=array.length-1;
+//         int ans=-1;
+//         int max=Integer.MAX_VALUE;
+//         while(low<=high){
+//             int mid=(low+high)/2;
+//             if(array[low]<=array[high]){
+//                 max=Math.min(max,array[low]);
+//             }
+//             if(array[low]<=array[mid]){
+//                 max=Math.min(max,array[low]);
+//                 low=mid+1;
+//             }
+//             else if(array[mid]<=array[high]){
+//                 max=Math.min(max,array[mid]);
+//                 high=mid-1;
+//             }
+           
+//         }
+//         System.out.println(max);
+//     }
+// }
+
 import java.util.*;
 public class Dynamic{
     public static void main(String args[]){
-        int array[]={7,8,9,1,2,3,4};
-        int low=0;
-        int high=array.length-1;
-        int ans=-1;
-        int max=Integer.MAX_VALUE;
-        while(low<=high){
-            int mid=(low+high)/2;
-            if(array[low]<=array[high]){
-                max=Math.min(max,array[low]);
-            }
-            if(array[low]<=array[mid]){
-                max=Math.min(max,array[low]);
-                low=mid+1;
-            }
-            else if(array[mid]<=array[high]){
-                max=Math.min(max,array[mid]);
-                high=mid-1;
-            }
-           
-        }
-        System.out.println(max);
+     for(int i=3;i>=0;i--){
+        System.out.print(1&(8>>i));
+     }
     }
 }
