@@ -136,11 +136,31 @@
 //     }
 // }
 
+// import java.util.*;
+// public class Dynamic{
+//     public static void main(String args[]){
+//      int array[]={1,2,3,4};
+//      List<List<Integer>> list=new ArrayList<>();
+//      for(int i=0;i<array.length;i++){
+//         List<Integer> l=new ArrayList<>();
+//         for(int j=i;j<array.length;j++){
+//            l.add(array[j]);
+//            list.add(new ArrayList<>(l));
+//         }   
+//      }
+//      System.out.println(list);
+//     }
+// }
+
 import java.util.*;
 public class Dynamic{
-    public static void main(String args[]){
-     for(int i=3;i>=0;i--){
-        System.out.print(1&(8>>i));
-     }
-    }
+   public static void main(String args[]){
+      int n=13;
+      int count=0;
+      for(int i=0;i<5;i++){
+         int a=(n>>i)&1;
+        if(a==1)count++;
+      }
+      System.out.println(count);
+   }
 }
