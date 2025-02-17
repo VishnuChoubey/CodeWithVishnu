@@ -167,27 +167,5 @@
 
 import java.util.*;
 public class Dynamic{
-    public static void main(String args[]){
-        int array[]={2,4,6,7,7,9};
-        int low=0;
-        int key=7 ;
-        int high=array.length-1;
-        int ans=array.length;
-        while(low<=high){
-            int mid=(low+high)/2;
-            // if(array[mid]==key){
-            //  ans=mid;
-            //  break;
-            // }
-            if(array[mid]>key){
-             high=mid-1;
-             ans=mid;
-            }
-            else{
-                low=mid+1;
-                
-            }
-        }
-       System.out.println(array[ans]);
-    }
+    public static void main(String args[])
 }
