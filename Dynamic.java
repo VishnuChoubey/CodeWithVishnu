@@ -165,29 +165,43 @@
 //    }
 // }
 
-import java.util.*;
-public class Dynamic{
-    public static void main(String args[]){
-        int array[]={2,4,6,7,7,9};
-        int low=0;
-        int key=7 ;
-        int high=array.length-1;
-        int ans=array.length;
-        while(low<=high){
-            int mid=(low+high)/2;
-            // if(array[mid]==key){
-            //  ans=mid;
-            //  break;
-            // }
-            if(array[mid]>key){
-             high=mid-1;
-             ans=mid;
-            }
-            else{
-                low=mid+1;
+// import java.util.*;
+// public class Dynamic{
+//     public static void main(String args[]){
+//         int array[]={2,4,6,7,7,9};
+//         int low=0;
+//         int key=7 ;
+//         int high=array.length-1;
+//         int ans=array.length;
+//         while(low<=high){
+//             int mid=(low+high)/2;
+//             // if(array[mid]==key){
+//             //  ans=mid;
+//             //  break;
+//             // }
+//             if(array[mid]>key){
+//              high=mid-1;
+//              ans=mid;
+//             }
+//             else{
+//                 low=mid+1;
                 
-            }
-        }
-       System.out.println(array[ans]);
-    }
-}
+//             }
+//         }
+//        System.out.println(array[ans]);
+//     }
+// }
+
+// import java.util.*;
+// public class Dynamic{
+//     public static void main(String args[]){
+//         int array[]={2,3,4,5,6};
+//         int i=2;
+//         int start=i;
+//         do{
+//             System.out.println(array[i]);
+//             i=(i+1)%array.length;
+//         }
+//         while(i!=start);
+//     }
+// }
