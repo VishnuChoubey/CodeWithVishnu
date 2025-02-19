@@ -221,22 +221,36 @@
 //     }
 // }
 
+// import java.util.*;
+// public class Dynamic{
+//     class Comparing implements Comparator<Integer>{
+//         public int compare(Integer i1,Integer i2){
+//             return i2.compareTo(i1);
+//         }
+//     }
+//     public static void main(String args[]){
+//         List<Integer> list=new ArrayList<>(){{
+//             add(12);
+//             add(13);
+//             add(14);
+//         }};
+        
+//         Dynamic dyna=new Dynamic();
+//         Collections.sort(list,(a,b)->a.compareTo(b));
+//         System.out.println(list);
+//     }
+// }
+
 import java.util.*;
 public class Dynamic{
-    class Comparing implements Comparator<Integer>{
-        public int compare(Integer i1,Integer i2){
-            return i2.compareTo(i1);
-        }
-    }
     public static void main(String args[]){
-        List<Integer> list=new ArrayList<>(){{
-            add(12);
-            add(13);
-            add(14);
+        TreeSet<Integer> set=new TreeSet<>(){{
+            add(12);add(13);add(9);add(21);
         }};
-        
-        Dynamic dyna=new Dynamic();
-        Collections.sort(list,(a,b)->a.compareTo(b));
-        System.out.println(list);
+       while(!set.isEmpty()){
+            int a=set.first();
+            System.out.println(a);
+            set.remove(a);
+        }
     }
 }
