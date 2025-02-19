@@ -205,3 +205,38 @@
 //         while(i!=start);
 //     }
 // }
+
+// import java.util.*;
+// public class Dynamic{
+//     public static void main(String args[]){
+//         Stack<Integer> stk=new Stack<>();
+//         stk.push(2);
+
+//         stk.push(3);
+//         stk.push(4);
+//         stk.push(5);
+//         for(int i=0;i<stk.size();i++){
+//             System.out.println(stk.elementAt(i));
+//         }
+//     }
+// }
+
+import java.util.*;
+public class Dynamic{
+    class Comparing implements Comparator<Integer>{
+        public int compare(Integer i1,Integer i2){
+            return i2.compareTo(i1);
+        }
+    }
+    public static void main(String args[]){
+        List<Integer> list=new ArrayList<>(){{
+            add(12);
+            add(13);
+            add(14);
+        }};
+        
+        Dynamic dyna=new Dynamic();
+        Collections.sort(list,(a,b)->a.compareTo(b));
+        System.out.println(list);
+    }
+}
