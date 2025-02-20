@@ -241,16 +241,59 @@
 //     }
 // }
 
+// import java.util.*;
+// public class Dynamic{
+//     public static void main(String args[]){
+//         TreeSet<Integer> set=new TreeSet<>(){{
+//             add(12);add(13);add(9);add(21);
+//         }};
+//        while(!set.isEmpty()){
+//             int a=set.first();
+//             System.out.println(a);
+//             set.remove(a);
+//         }
+//     }
+// }
+
+// import java.util.*;
+// public class Dynamic{
+//     public static void printing(int ind,int[] array,List<Integer> ds,List<List<Integer>> list){
+//         if(ind>=array.length)
+//         list.add(new ArrayList<>(ds));
+        
+//         for(int i=ind;i<array.length;i++){
+//             ds.add(array[i]);
+//             printing(i+1,array,ds,list);
+//             ds.remove(ds.size()-1);
+//         }
+//     }
+//     public static void main(String args[]){
+//       int array[]={0,1,2,3};
+//       List<List<Integer>> list=new ArrayList<>();
+//       printing(0,array,new ArrayList<>(),list);
+//       System.out.println(list);
+//     }
+// }
+
 import java.util.*;
 public class Dynamic{
-    public static void main(String args[]){
-        TreeSet<Integer> set=new TreeSet<>(){{
-            add(12);add(13);add(9);add(21);
-        }};
-       while(!set.isEmpty()){
-            int a=set.first();
-            System.out.println(a);
-            set.remove(a);
+    public static void combination(int ind,List<String> list,String array[],StringBuilder sb){
+        if(sb.length()==array.length){
+            list.add(sb.toString());
+            return;
         }
+        String str=array[ind];
+        for(int i=0;i<array.length;i++){
+            sb.append(str.charAt(i));
+            combination(ind+1,list,array,sb);
+            sb.deleteCharAt(sb.length()-1);
+        }
+    }
+    public static void main(String args[]){
+        String[] array={"abc","def"};
+        StringBuilder sb=new StringBuilder();
+        List<String> list=new ArrayList<>();
+        combination(0,list,array,sb);
+        System.out.println(list);
     }
 }
