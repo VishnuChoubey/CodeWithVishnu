@@ -275,25 +275,41 @@
 //     }
 // }
 
+// import java.util.*;
+// public class Dynamic{
+//     public static void combination(int ind,List<String> list,String array[],StringBuilder sb){
+//         if(sb.length()==array.length){
+//             list.add(sb.toString());
+//             return;
+//         }
+//         String str=array[ind];
+//         for(int i=0;i<array.length;i++){
+//             sb.append(str.charAt(i));
+//             combination(ind+1,list,array,sb);
+//             sb.deleteCharAt(sb.length()-1);
+//         }
+//     }
+//     public static void main(String args[]){
+//         String[] array={"abc","def"};
+//         StringBuilder sb=new StringBuilder();
+//         List<String> list=new ArrayList<>();
+//         combination(0,list,array,sb);
+//         System.out.println(list);
+//     }
+// }
 import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 public class Dynamic{
-    public static void combination(int ind,List<String> list,String array[],StringBuilder sb){
-        if(sb.length()==array.length){
-            list.add(sb.toString());
-            return;
-        }
-        String str=array[ind];
-        for(int i=0;i<array.length;i++){
-            sb.append(str.charAt(i));
-            combination(ind+1,list,array,sb);
-            sb.deleteCharAt(sb.length()-1);
-        }
-    }
     public static void main(String args[]){
-        String[] array={"abc","def"};
-        StringBuilder sb=new StringBuilder();
-        List<String> list=new ArrayList<>();
-        combination(0,list,array,sb);
+        List<Integer> list=new ArrayList<>(Arrays.asList(3,4,7,2));
+      
         System.out.println(list);
+        List<Integer> evenNumbers = list.stream()
+                                   .filter(n -> n % 2 == 0)
+                                   .collect(Collectors.toList());
+        System.out.println(evenNumbers);
+        System.out.println();
+
     }
 }
