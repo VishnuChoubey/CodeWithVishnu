@@ -297,19 +297,43 @@
 //         System.out.println(list);
 //     }
 // }
-import java.util.*;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-public class Dynamic{
-    public static void main(String args[]){
-        List<Integer> list=new ArrayList<>(Arrays.asList(3,4,7,2));
+// import java.util.*;
+// import java.util.stream.Collector;
+// import java.util.stream.Collectors;
+// public class Dynamic{
+//     public static void main(String args[]){
+//         List<Integer> list=new ArrayList<>(Arrays.asList(3,4,7,2));
       
-        System.out.println(list);
-        List<Integer> evenNumbers = list.stream()
-                                   .filter(n -> n % 2 == 0)
-                                   .collect(Collectors.toList());
-        System.out.println(evenNumbers);
-        System.out.println();
+//         System.out.println(list);
+//         List<Integer> evenNumbers = list.stream()
+//                                    .filter(n -> n % 2 == 0)
+//                                    .collect(Collectors.toList());
+//         System.out.println(evenNumbers);
+//         System.out.println();
 
+//     }
+// }
+
+import java.util.*;
+public class Dynamic{
+    public static boolean backtrack(int i,int j,int[][] array){
+        if(i<0||j<0||i>=array.length||j>=array[0].length)return true;
+        if(array[i][j]==2)return false;
+        array[i][j]=1;
+        boolean l=backtrack(i,j+1,array);
+        boolean r=backtrack(i+1,j,array);
+        if(l||r)return false;
+        array[i][j]=0;
+        return false;
+    }
+    public static void main(String args[]){
+        int array[][]={{0,0,0},{0,2,0},{0,0,0}};
+        backtrack(0,0,array);
+        for(int[] row:array){
+            for(int i:row){
+                System.out.print(i+" ");
+            }
+            System.out.println();
+        }
     }
 }
