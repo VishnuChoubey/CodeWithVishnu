@@ -314,24 +314,73 @@
 //     }
 // }
 
+// import java.util.*;
+// public class Dynamic{
+//     public static boolean backtrack(int i,int j,int[][] array){
+//         if(i<0||j<0||i>=array.length||j>=array[0].length)return true;
+//         if(array[i][j]==2)return false;
+//         array[i][j]=1;
+//         boolean l=backtrack(i,j+1,array);
+//         boolean r=backtrack(i+1,j,array);
+//         if(l||r)return false;
+//         array[i][j]=0;
+//         return false;
+//     }
+//     public static void main(String args[]){
+//         int array[][]={{0,0,0},{0,2,0},{0,0,0}};
+//         backtrack(0,0,array);
+//         for(int[] row:array){
+//             for(int i:row){
+//                 System.out.print(i+" ");
+//             }
+//             System.out.println();
+//         }
+//     }
+// }
+
+
+
 import java.util.*;
-public class Dynamic{
-    public static boolean backtrack(int i,int j,int[][] array){
-        if(i<0||j<0||i>=array.length||j>=array[0].length)return true;
-        if(array[i][j]==2)return false;
-        array[i][j]=1;
-        boolean l=backtrack(i,j+1,array);
-        boolean r=backtrack(i+1,j,array);
-        if(l||r)return false;
-        array[i][j]=0;
-        return false;
+
+public class Dynamic {
+    public static boolean backtrack(int i, int j, int[][] array) {
+        if (i < 0 || j < 0 || i >= array.length || j >= array[0].length) {
+            return false; // Out of bounds, stop backtracking
+        }
+        if (array[i][j] == 2) {
+            return true; // Obstacle found, trigger full backtracking
+        }
+        if (array[i][j] == 1) {
+            return false; // Already visited, ignore
+        }
+
+        array[i][j] = 1; // Mark as visited
+
+        boolean left = backtrack(i, j - 1, array);
+        boolean right = backtrack(i, j + 1, array);
+        boolean up = backtrack(i - 1, j, array);
+        boolean down = backtrack(i + 1, j, array);
+
+        if (left || right || up || down) {
+            array[i][j] = 0; // Undo changes since obstacle found
+            return true; // Indicate backtracking required
+        }
+
+        return false; // Path continues normally
     }
-    public static void main(String args[]){
-        int array[][]={{0,0,0},{0,2,0},{0,0,0}};
-        backtrack(0,0,array);
-        for(int[] row:array){
-            for(int i:row){
-                System.out.print(i+" ");
+
+    public static void main(String[] args) {
+        int[][] array = {
+            {0, 0, 0},
+            {0, 0, 0},
+            {0, 0, 0}
+        };
+
+        backtrack(0, 0, array);
+
+        for (int[] row : array) {
+            for (int i : row) {
+                System.out.print(i + " ");
             }
             System.out.println();
         }
